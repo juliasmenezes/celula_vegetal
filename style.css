@@ -4,22 +4,37 @@
     box-sizing: border-box;
 }
 
-#container {
-    height: 100vh;
-    width: 100%;
+body {
+     background-color: #ECFAE5;
+}
+
+header {
+    background-color: #9CDBA6;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+#container {
+    justify-self: center;
+    margin-top: 40px;
+    border-radius: 30px;
+    padding: 30px;
+    height: 100vh;
+    width: 77%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    justify-items: center;
+    background-color: #FFFDF6;
+}
+
 .flip-card {
+    position: relative;
     width: 300px;
     height: 450px;
     perspective: 1000px;
-}
-
-.flip-card:hover .flip-card-inner{
-    transform: rotateY(-180deg);
 }
 
 .flip-card .flip-card-back {
@@ -30,6 +45,10 @@
     transform-style: preserve-3d;
     transition: transform 1s;
     position: relative;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(-180deg);
 }
 
 .flip-card-back,
@@ -47,10 +66,56 @@
 
 
 .botao {
-    display: flex;
+    position: absolute;
+    bottom: 50px;
+    right: 122px;
     background-color: #468585;
     color: whitesmoke;
-    border: 0;
-    padding: 5px;
-    border-radius: 10px;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; /*coloca o container do modal a frente dos outros elementos na tela*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /*controla o que acontece quando o conteudo é muito grande; 'auto' adiciona uma barra de rolagem*/
+  background-color: rgba(0,0,0,0.5); 
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 60%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s;
+}
+
+.close-button {
+  color: #aaa;
+  float: right; /*O elemento flutua à direita do seu contêiner*/
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: black;
+}
+
+@keyframes fadeIn { /*regra para controlar as etapas de uma animação*/
+  from {opacity: 0}
+  to {opacity: 1}
 }
